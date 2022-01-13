@@ -1,9 +1,13 @@
 package com.project.professor.allocation.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.DayOfWeek;
 import java.util.Date;
 
+@Entity
 public class Allocation {
+    @Id
     private Long id;
     private DayOfWeek day;
     private Date start;
