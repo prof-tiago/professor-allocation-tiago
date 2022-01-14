@@ -1,17 +1,27 @@
 package com.project.professor.allocation.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.DayOfWeek;
 import java.util.Date;
 
 @Entity
 public class Allocation {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private DayOfWeek day;
+
+    @Temporal(TemporalType.TIME)
+    @Column(nullable = false)
     private Date start;
+
+    @Temporal(TemporalType.TIME)
+    @Column(nullable = false)
     private Date end;
+
     private Long courseId;
     private Long professorId;
 
