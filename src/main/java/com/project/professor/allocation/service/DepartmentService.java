@@ -26,9 +26,17 @@ public class DepartmentService {
         }
     }
 
-    public List<Department> findAll() {
-        List<Department> professors = departmentRepository.findAll();
-        return professors;
+    public List<Department> findAll(String name) {
+        if (name == null)
+        {
+            List<Department> professors = departmentRepository.findAll();
+            return professors;
+        }
+        else
+        {
+            List<Department> professors = departmentRepository.findByNameContaining(name);
+            return professors;
+        }
     }
 
     public Department create(Department professor) {
